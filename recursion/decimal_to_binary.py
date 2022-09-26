@@ -3,6 +3,7 @@
 # Convert a Decimal to Binary
 
 def decimal_to_binary(num):
+    assert int(num) == num, 'The parameter must be an integer'
     if num == 0:
         return 0
     else:
