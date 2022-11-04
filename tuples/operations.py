@@ -1,0 +1,11 @@
+my_tuple = (1,2,3,4,5,6,7,8,9)
+my_tuple2 = (1,2,3,4,5,6,7,8,9)
+
+print(my_tuple + my_tuple2)
+print(my_tuple * 4)
+print(4 in my_tuple)
+print(my_tuple.count(1))
+print(my_tuple.index(4))
+print(len(my_tuple))
+print(max(my_tuple))
+print(tuple([1,2,3,4,5,6,7,8,9]))
