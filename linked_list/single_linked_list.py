@@ -69,19 +69,18 @@ class LinkedList:
                     self.tail = None
                 else:
                     self.head = self.head.next
-            # NOTE: Check this later. Looks like something is wrong
             elif position == 1:
                 if self.head == self.tail:
                     self.head = None
                     self.tail = None
                 else:
-                    node = self.head
-                    while node is not None:
-                        if node.next == self.tail:
-                            break
-                        node = node.next
-                    node.next = None
-                    self.tail = node
+                    if self.head.next.next is None:
+                        self.head.next = None
+                        self.tail = self.head
+                    else:
+                        next_node = self.head.next
+                        self.head.next = next_node.next
+
             else:
                 temp_node = self.head
                 index = 0
@@ -91,12 +90,17 @@ class LinkedList:
                 next_node = temp_node.next
                 temp_node.next = next_node.next
 
+    def delete_list(self):
+        self.head = None
+        self.tail = None
+
+
 
 def add_to_linked_list():
     linked_list = LinkedList()
     [linked_list.insert(num, num) for num in range(3)]
     while True:
-        option = int(input("[+] 1 to see list. 2 To add num. 3 to delete: "))
+        option = int(input("[+] 1 to see list. 2 To add num. 3 to delete a element. 4 To delete the wholy list: "))
         match option:
             case 1:
                 print([node.value for node in linked_list])
@@ -109,5 +113,7 @@ def add_to_linked_list():
                 print('[+] Pick index to delete')
                 index = int(input('Enter index: '))
                 linked_list.delete(index)
+            case 4:
+                linked_list.delete_list()
 
 add_to_linked_list()
