@@ -1,4 +1,5 @@
-"""
-What is a linked list?
-A linked list is a collection of objects linked to each other
-"""
+class _Node:
+    __slots__ = '_element', '_next'
+    def __init__(self, element, next):
+        self._element = element
+        self._next = next
